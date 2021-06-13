@@ -1,0 +1,21 @@
+{{ $msg := `
+You have enabled backlinks in the site configuration. To obtain an accurate
+list of backlinks you must:
+
+a) Run hugo
+b) Run scripts/create-backlinks-database.sh
+c) Run hugo again, or run hugo server to preview the site
+`}}
+
+{{ if site.Params.backlinks.enable }}
+  {{ warnf $msg }}
+  {{ if fileExists "data/backlinks.json" }}
+    {{ if site.Data.backlinks }}
+      <ul class="backlinks">
+        {{ range where site.Data.backlinks "destination_url" .RelPermalink }}
+        <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+        {{ end }}
+      </ul>
+    {{ end }}
+  {{ end }}
+{{ end }}

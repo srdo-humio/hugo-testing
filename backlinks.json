@@ -1,0 +1,34 @@
+[
+  {
+    "destination_url": "/post/post-2/",
+    "source_linktitle": "Post 1",
+    "source_path": "post/post-1.md",
+    "source_permalink": "http://example.org/post/post-1/",
+    "source_relpermalink": "/post/post-1/",
+    "source_title": "Post 1"
+  },
+  {
+    "destination_url": "/post/post-2/",
+    "source_linktitle": "Post 1",
+    "source_path": "post/post-1.md",
+    "source_permalink": "http://example.org/post/post-1/",
+    "source_relpermalink": "/post/post-1/",
+    "source_title": "Post 1"
+  },
+  {
+    "destination_url": "/post/post-3/",
+    "source_linktitle": "Post 1",
+    "source_path": "post/post-1.md",
+    "source_permalink": "http://example.org/post/post-1/",
+    "source_relpermalink": "/post/post-1/",
+    "source_title": "Post 1"
+  },
+  {
+    "destination_url": "/post/post-3/",
+    "source_linktitle": "Post 1",
+    "source_path": "post/post-1.md",
+    "source_permalink": "http://example.org/post/post-1/",
+    "source_relpermalink": "/post/post-1/",
+    "source_title": "Post 1"
+  }
+]

@@ -1,0 +1,36 @@
+{{- $attrs := dict "href" .Destination -}}
+{{- with .Title -}}
+  {{- $attrs = merge $attrs (dict "title" .) -}}
+{{- end -}}
+
+{{- if site.Params.backlinks.enable -}}
+  {{- if findRE `^[A-Za-z]+:` .Destination -}}
+    {{- $attrs = merge $attrs (dict "class" "external-link") -}}
+  {{- else -}}
+    {{- $permalink := .Page.Permalink -}}
+    {{- $relPermalink := .Page.RelPermalink -}}
+    {{- if site.Params.backlinks.appendFragment -}}
+      {{- $fragment := first 7 (sha1 (print .Destination .Text)) -}}
+      {{- $attrs = merge $attrs (dict "id" $fragment) -}}
+      {{- $permalink = printf "%s#%s" $permalink $fragment -}}
+      {{- $relPermalink = printf "%s#%s" $relPermalink $fragment -}}
+    {{- end -}}
+    {{- $attrs = merge $attrs (dict
+      "class" "internal-link"
+      "data-source-linktitle" .Page.LinkTitle
+      "data-source-path" .Page.Path
+      "data-source-permalink" $permalink
+      "data-source-relpermalink" $relPermalink
+      "data-source-title" .Page.Title
+      )
+    -}}
+  {{- end -}}
+{{- end -}}
+
+<a
+{{- range $k, $v := $attrs -}}
+  {{- (printf " %s=%q" $k $v) | safeHTMLAttr -}}
+{{- end -}}
+>{{ safeHTML .Text }}</a>
+
+{{- /* Chomp trailing whitespace. */ -}}

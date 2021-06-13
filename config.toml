@@ -1,3 +1,8 @@
 baseURL = "http://example.org/"
 languageCode = "en-us"
 title = "Hugo Forum Topic #33328"
+
+[params.backlinks]
+enable = true
+appendFragment = true
+displayDuplicates = false
