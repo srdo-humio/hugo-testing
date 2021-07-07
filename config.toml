@@ -1,3 +1,7 @@
 baseURL = "http://example.org/"
 languageCode = "en-us"
 title = "Hugo Forum Topic #33718"
+
+[languages.en]
+[languages.es]
+[languages.de]
